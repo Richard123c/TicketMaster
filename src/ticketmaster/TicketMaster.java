@@ -25,6 +25,27 @@ public class TicketMaster extends Application {
         primaryStage.show();
     }
     
+    
+    {
+        abrirVentanaConfiguracion();
+    }
+    
+    public static void abrirVentanaConfiguracion() {
+        try {
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(TicketMaster.class.getResource("ticketmaster/modelo/configuracion.fxml"));
+            
+            Parent root = loader.load();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Configuracion del Sistema");
+            stage.show();
+            
+        } catch (Exception e) {
+            System.err.println("Error al abrir configuracion");
+            e.printStackTrace();
+        }
+    }
+    
     public static void main(String[] args) {
         launch(args);
     }
