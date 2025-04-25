@@ -8,69 +8,96 @@ package ticketmaster.model;
  *
  * @author Lenovo
  */
-   public abstract class ParametroSistema {
-    private String nombre;
-    private String valor;
-
-    public ParametroSistema(String nombre, String valor) {
-        this.nombre = nombre;
-        this.valor = valor;
+   public class ParametroSistema {
+    private String nombreEmpresa;
+    private byte[] logo;
+    private String idioma;
+    private String zonaHoraria;
+    private int diasVencimientoTickets;
+    private String prioridadAlta;
+    private String prioridadMedia;
+    private String prioridadBaja;
+    
+    public ParametroSistema() {
+        
     }
 
-    public String getNombre() {
-        return nombre;
+    public ParametroSistema(String nombreEmpresa, byte[] logo, String idioma, String zonaHoraria, int diasVencimientoTickets, String prioridadAlta, String prioridadMedia, String prioridadBaja) {
+        this.nombreEmpresa = nombreEmpresa;
+        this.logo = logo;
+        this.idioma = idioma;
+        this.zonaHoraria = zonaHoraria;
+        this.diasVencimientoTickets = diasVencimientoTickets;
+        this.prioridadAlta = prioridadAlta;
+        this.prioridadMedia = prioridadMedia;
+        this.prioridadBaja = prioridadBaja;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    
+
+    public String getNombreEmpresa() {
+        return nombreEmpresa;
     }
 
-    public String getValor() {
-        return valor;
+    public void setNombreEmpresa(String nombreEmpresa) {
+        this.nombreEmpresa = nombreEmpresa;
     }
 
-    public void setValor(String valor) {
-        this.valor = valor;
+    public byte[] getLogo() {
+        return logo;
+    }
+
+    public void setLogo(byte[] logo) {
+        this.logo = logo;
+    }
+
+    public String getIdioma() {
+        return idioma;
+    }
+
+    public void setIdioma(String idioma) {
+        this.idioma = idioma;
+    }
+
+    public String getZonaHoraria() {
+        return zonaHoraria;
+    }
+
+    public void setZonaHoraria(String zonaHoraria) {
+        this.zonaHoraria = zonaHoraria;
+    }
+
+    public int getDiasVencimientoTickets() {
+        return diasVencimientoTickets;
+    }
+
+    public void setDiasVencimientoTickets(int diasVencimientoTickets) {
+        this.diasVencimientoTickets = diasVencimientoTickets;
+    }
+
+    public String getPrioridadAlta() {
+        return prioridadAlta;
+    }
+
+    public void setPrioridadAlta(String prioridadAlta) {
+        this.prioridadAlta = prioridadAlta;
+    }
+
+    public String getPrioridadMedia() {
+        return prioridadMedia;
+    }
+
+    public void setPrioridadMedia(String prioridadMedia) {
+        this.prioridadMedia = prioridadMedia;
+    }
+
+    public String getPrioridadBaja() {
+        return prioridadBaja;
+    }
+
+    public void setPrioridadBaja(String prioridadBaja) {
+        this.prioridadBaja = prioridadBaja;
     }
     
-    public abstract boolean validar();
-}
-
- class ParametroTexto extends ParametroSistema{
-    private int minCaracteres;
-    private int maxCaracteres;
-
-    public ParametroTexto(String nombre, String valor, int min, int max) {
-        super(nombre, valor);
-        this.minCaracteres = minCaracteres;
-        this.maxCaracteres = maxCaracteres;
-    }
     
-    @Override
-    public boolean validar() {
-        return getValor() != null &&
-                getValor().length() >= minCaracteres &&
-                getValor().length() <= maxCaracteres;
-    }
-}
-
- class ParametroNumerico extends ParametroSistema {
-    private int min;
-    private int max;
-    
-    public ParametroNumerico(String nombre, String valor, int min, int max) {
-        super(nombre, valor);
-        this.min = min;
-        this.max = max;
-    }
-    
-    @Override
-    public boolean validar() {
-        try {
-            int num = Integer.parseInt(getValor());
-            return num >= min && num <= max;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
 }

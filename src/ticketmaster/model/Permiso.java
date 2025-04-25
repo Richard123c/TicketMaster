@@ -9,22 +9,12 @@ package ticketmaster.model;
  * @author Lenovo
  */
 public class Permiso {
-    private int id;
     private String nombre;
     private String descripcion;
 
-    public Permiso(int id, String nombre, String descripcion) {
-        this.id = id;
+    public Permiso(String nombre, String descripcion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNombre() {
@@ -43,5 +33,8 @@ public class Permiso {
         this.descripcion = descripcion;
     }
     
-    
+    @Override
+    public String toString() {
+        return nombre;
+    }
 }

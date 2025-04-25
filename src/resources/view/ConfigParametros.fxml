@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="789.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticketmaster.controller.ConfigParametrosController">
+   <children>
+      <Pane prefHeight="789.0" prefWidth="734.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fitHeight="788.0" fitWidth="752.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../imagenes/Puerta.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="265.0" fitWidth="342.0" layoutX="177.0" layoutY="353.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../imagenes/Bandera.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="txtNombreEmpresa" layoutX="366.0" layoutY="223.0" prefHeight="34.0" prefWidth="192.0" style="-fx-background-color: #fceade;" />
+            <Label layoutX="177.0" layoutY="228.0" text="Nombre de la Empresa">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="177.0" layoutY="274.0" text="Logo">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imgLogo" fitHeight="79.0" fitWidth="192.0" layoutX="366.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="btnCargarLogo" layoutX="246.0" layoutY="301.0" mnemonicParsing="false" onAction="#cargarLogo" style="-fx-background-color: #8c2f39;" text="Seleccionar Imagen" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </Button>
+            <Label layoutX="177.0" layoutY="368.0" text="Idioma">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cmbIdioma" layoutX="366.0" layoutY="359.0" prefHeight="34.0" prefWidth="192.0" style="-fx-background-color: #fceade;" />
+            <Label layoutX="179.0" layoutY="411.0" text="Zona Horaria">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cmbZonaHoraria" layoutX="365.0" layoutY="406.0" prefHeight="34.0" prefWidth="192.0" style="-fx-background-color: #fceade;" />
+            <Spinner fx:id="spnVencimiento" layoutX="366.0" layoutY="456.0" prefHeight="34.0" prefWidth="192.0" style="-fx-background-color: #fceade;" />
+            <Label layoutX="177.0" layoutY="461.0" text="Dias de Vencimiento">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtPrioridadAlta" layoutX="366.0" layoutY="509.0" prefHeight="34.0" prefWidth="192.0" style="-fx-background-color: #fceade;" />
+            <Label layoutX="177.0" layoutY="513.0" text="Prioridad Alta">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="177.0" layoutY="561.0" text="Prioridad Media">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtPrioridadMedia" layoutX="366.0" layoutY="556.0" prefHeight="34.0" prefWidth="192.0" style="-fx-background-color: #fceade;" />
+            <Label layoutX="176.0" layoutY="605.0" text="Prioridad Baja">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtPrioridadBaja" layoutX="365.0" layoutY="600.0" prefHeight="34.0" prefWidth="192.0" style="-fx-background-color: #fceade;" />
+            <Button id="btnGuardar" layoutX="225.0" layoutY="696.0" mnemonicParsing="false" onAction="#guardar" style="-fx-background-color: #8c2f39;" text="Guardar" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCancelar" layoutX="435.0" layoutY="696.0" mnemonicParsing="false" onAction="#cancelar" style="-fx-background-color: #8c2f39;" text="Cancelar" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label fx:id="lblError" layoutX="346.0" layoutY="741.0" text="Label" textFill="#f20101" />
+            <Label layoutX="163.0" layoutY="53.0" text="Configuracion Parametros" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

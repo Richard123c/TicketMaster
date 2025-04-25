@@ -6,58 +6,57 @@ package ticketmaster.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.*;
+import javafx.event.ActionEvent;
+import java.sql.*;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.stage.Stage;
-import javafx.scene.control.Alert.AlertType;
+import javafx.scene.Node;
 
-
+import ticketmaster.database.Conexion;
 /**
  * FXML Controller class
  *
  * @author Lenovo
  */
 public class LoginController {
-    @FXML private TextField txtEmail;
-    @FXML private PasswordField txtPassword;
+    @FXML private TextField txtUsuario;
+    @FXML private PasswordField txtContraseña;
     @FXML private Label lblError;
-
-    private static final String ADMIN_EMAIL = "admin@ticketmaster.com";
-    private static final String ADMIN_PASSWORD = "admin123";
     
     @FXML
-    private void handleLogin() {
-        String email = txtEmail.getText().trim();
-        String password = txtPassword.getText().trim();
+    public void iniciarSesion(ActionEvent event) {
+        String usuario = txtUsuario.getText();
+        String contraseña = txtContraseña.getText();
         
-        if (ADMIN_EMAIL.equals(email) && ADMIN_PASSWORD.equals(password)) {
-            cargarVentanaConfiguracion();
-        } else {
-            lblError.setText("Credenciales incorrectas. Use admin@ticketmaster.com / admin123");
+        try (Connection conn = Conexion.conectar()) {
+            String sql = "SELECT * FROM usuarios WHERE nombre_usuario = ? AND contraseña = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, usuario);
+            stmt.setString(2, contraseña);
+            ResultSet rs = stmt.executeQuery();
+            
+            if (rs.next()) {
+                lblError.setText("Inicio de sesion exitoso!");
+                
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.close();
+                
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/view/ConfigParametros.fxml"));
+                Parent root = loader.load();
+                
+                Stage nuevaVentana = new Stage();
+                nuevaVentana.setTitle("Configuracion del Sistema");
+                nuevaVentana.setScene(new Scene(root));
+                nuevaVentana.show();
+                
+            } else {
+                lblError.setText("Usuario o contraseña incorrectos.");
+            }
+        } catch (Exception e) {
+            lblError.setText("Error de conexion");
+            e.printStackTrace();
         }
     }
-       
-        private void cargarVentanaConfiguracion() {    
-            try {
-                Stage stage = (Stage) txtEmail.getScene().getWindow();
-                Parent root = FXMLLoader.load(getClass().getResource("ticketmaster/view/configuracion.fxml"));
-       
-                stage.setScene(new Scene(root));
-                stage.setTitle("Configuracion del Sistema");
-                
-            } catch (Exception e) {
-                mostrarError("Error al cargar la interfaz" + e.getMessage());
-            }
-        }
-
-      private void mostrarError(String mensaje) {
-           Alert alert = new Alert(AlertType.ERROR);
-           alert.setTitle("Error");
-           alert.setHeaderText(null);
-           alert.setContentText(mensaje);
-           alert.showAndWait();
-    } 
-        
-    
 }

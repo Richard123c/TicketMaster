@@ -6,31 +6,30 @@ package ticketmaster;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.Scene;
+
+
 /**
  *
  * @author Lenovo
  */
 public class TicketMaster extends Application {
-
+    
     @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/ticketmaster/view/login.fxml"));
+    public void start(Stage primaryStage){
+    try {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/view/login.fxml"));
+    Scene scene = new Scene(loader.load());
+    primaryStage.setTitle("Sistema de Tickets - Login");
+    primaryStage.setScene(scene);
+    primaryStage.setResizable(false);
+    primaryStage.show();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
         
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-    
-    public static void setRoot(String fxmlPath) throws Exception {
-        Stage stage = new Stage();
-        Parent root = FXMLLoader.load(TicketMaster.class.getResource(fxmlPath));
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-    
     public static void main(String[] args) {
         launch(args);
     }

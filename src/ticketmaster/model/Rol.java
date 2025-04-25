@@ -4,34 +4,27 @@
  */
 package ticketmaster.model;
 
+import java.util.ArrayList;
 import java.util.List;
 /**
  *
  * @author Lenovo
  */
 public class Rol {
-    private int id;
     private String nombre;
-    private String descripcion;
+    private String descripion;
     private List<Permiso> permisos;
     
-    public boolean tienePermiso(String nombrePermiso) {
-        return permisos.stream().anyMatch(p -> p.getNombre().equals(nombrePermiso));
-    }
-
-    public Rol(int id, String nombre, String descripcion) {
-        this.id = id;
+    public Rol(String nombre, String descripion, List<Permiso> permisos) {
         this.nombre = nombre;
-        this.descripcion = descripcion;
-        
+        this.descripion = descripion;
+        this.permisos = permisos;
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    
+    public Rol(String nombre, String descripion) {
+        this.nombre = nombre;
+        this.descripion = descripion;
+        this.permisos = new ArrayList<>();
     }
 
     public String getNombre() {
@@ -42,21 +35,30 @@ public class Rol {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescripion() {
+        return descripion;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripion(String descripion) {
+        this.descripion = descripion;
     }
 
     public List<Permiso> getPermisos() {
         return permisos;
     }
-
-    public void setPermisos(List<Permiso> permisos) {
-        this.permisos = permisos;
+    
+    public void agregarPermiso(Permiso permiso) {
+        if(!permisos.contains(permiso)) {
+            permisos.add(permiso);
+        }
     }
     
+    public void eliminarPermiso(Permiso permiso) {
+        permisos.remove(permiso);
+    }
     
+    @Override
+    public String toString() {
+        return nombre;
+    }
 }
