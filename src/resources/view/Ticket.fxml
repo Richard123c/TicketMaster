@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="504.0" prefWidth="546.0" style="-fx-background-color: #ba181b;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="ticketmaster.controller.TicketController">
+   <children>
+      <VBox layoutX="40.0" layoutY="30.0" prefHeight="463.0" prefWidth="453.0" spacing="12.0">
+         <children>
+            <Label style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Gestion de Tickets" textFill="WHITE" />
+            <HBox prefHeight="45.0" prefWidth="554.0" spacing="10.0">
+               <children>
+                  <Label minWidth="100.0" style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Titulo:" textFill="WHITE" />
+                  <TextField fx:id="campoTitulo" prefHeight="25.0" prefWidth="300.0" promptText="Ingrese el titulo del ticket" style="-fx-background-color: #adb5bd;" />
+               </children>
+            </HBox>
+            <HBox prefHeight="44.0" prefWidth="453.0" spacing="10.0">
+               <children>
+                  <Label minWidth="100.0" style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Descripcion:" textFill="WHITE" />
+                  <TextArea fx:id="campoDescripcion" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: #adb5bd;" />
+               </children>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="453.0" spacing="10.0">
+               <children>
+                  <Label minWidth="100.0" style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Departamento:" textFill="WHITE" />
+                  <ComboBox fx:id="comboDepartamento" prefWidth="200.0" promptText="Seleccione un departamento" style="-fx-background-color: #adb5bd;" />
+               </children>
+            </HBox>
+            <HBox prefHeight="43.0" prefWidth="453.0" spacing="10.0">
+               <children>
+                  <Label minWidth="100.0" style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Prioridad" textFill="WHITE" />
+                  <ComboBox fx:id="comboPrioridad" prefWidth="150.0" promptText="Seleccione prioridad" style="-fx-background-color: #adb5bd;" />
+               </children>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="453.0" spacing="10.0">
+               <children>
+                  <Label minWidth="100.0" style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Adjunto" textFill="WHITE" />
+                  <TextField fx:id="campoAdjunto" prefWidth="200.0" style="-fx-background-color: #adb5bd;" />
+                  <Button mnemonicParsing="false" onAction="#seleccionarAdjunto" style="-fx-background-color: #343a40; -fx-font-size: 13px; -fx-font-weight: bold;" text="Seleccionar" textFill="WHITE" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="453.0" spacing="20.0">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#crearTicket" style="-fx-background-color: #343a40; -fx-font-size: 15px; -fx-font-weight: bold;" text="Crear Ticket" textFill="WHITE" />
+                  <Label fx:id="mensajeEstado" style="-fx-font-size: 20px;" text="Label" textFill="#ffd60a" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

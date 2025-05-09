@@ -5,6 +5,7 @@
 package ticketmaster.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.scene.image.Image;
@@ -12,6 +13,10 @@ import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
 import ticketmaster.model.ParametroSistema;
 import ticketmaster.DAO.ParametrosDAO;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.Parent;
+import javafx.scene.Node;
 
 import java.io.File;
 import java.io.IOException;
@@ -128,5 +133,149 @@ public class ConfigParametrosController {
     private void cancelar(ActionEvent event) {
         cargarParametros();
         lblError.setText("Cambios cancelados.");
+    }
+    
+    @FXML
+    private void abrirGestionRolesPermisos(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/view/GestionRolesPermisos.fxml"));
+            Parent root = loader.load();
+            
+            Stage nuevaVentana = new Stage();
+            nuevaVentana.setTitle("Gestion de Roles y Permisos");
+            nuevaVentana.setScene(new Scene(root));
+            nuevaVentana.show();
+            
+            Stage ventanaActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            ventanaActual.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    private void abrirGestionDepartamentos(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/view/GestionDepartamentos.fxml"));
+            Parent root = loader.load();
+            
+            Stage nuevaVentana = new Stage();
+            nuevaVentana.setTitle("Gestion de Departamentos");
+            nuevaVentana.setScene(new Scene(root));
+            nuevaVentana.show();
+            
+            Stage ventanaActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            ventanaActual.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    private void abrirGestionUsuarios(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/view/GestionUsuarios.fxml"));
+            Parent root = loader.load();
+            
+            Stage nuevaVentana = new Stage();
+            nuevaVentana.setTitle("Gestion de Usuarios");
+            nuevaVentana.setScene(new Scene(root));
+            nuevaVentana.show();
+            
+            Stage ventanaActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            ventanaActual.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    private void abrirGestionEstados(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/view/GestionEstados.fxml"));
+            Parent root = loader.load();
+            
+            Stage nuevaVentana = new Stage();
+            nuevaVentana.setTitle("Gestion de Estados de Tickets");
+            nuevaVentana.setScene(new Scene(root));
+            nuevaVentana.show();
+            
+            Stage ventanaActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            ventanaActual.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    private void abrirGestionFlujos(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/view/GestionFlujos.fxml"));
+            Parent root = loader.load();
+            
+            Stage nuevaVentana = new Stage();
+            nuevaVentana.setTitle("Gestion de Flujos de Trabajo");
+            nuevaVentana.setScene(new Scene(root));
+            nuevaVentana.show();
+            
+            Stage ventanaActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            ventanaActual.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    private void abrirGestionTickets(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/view/Ticket.fxml"));
+            Parent root = loader.load();
+            
+            Stage nuevaVentana = new Stage();
+            nuevaVentana.setTitle("Gestion Tickets");
+            nuevaVentana.setScene(new Scene(root));
+            nuevaVentana.show();
+            
+            Stage ventanaActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            ventanaActual.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    private void abrirConsultasTicketsPendientes(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/view/ConsultarTicketsPendientes.fxml"));
+            Parent root = loader.load();
+            
+            Stage nuevaVentana = new Stage();
+            nuevaVentana.setTitle("Consultar tickets pendientes");
+            nuevaVentana.setScene(new Scene(root));
+            nuevaVentana.show();
+            
+            Stage ventanaActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            ventanaActual.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    private void abrirCambioEstadoTicket(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/view/CambiarEstado.fxml"));
+            Parent root = loader.load();
+            
+            Stage nuevaVentana = new Stage();
+            nuevaVentana.setTitle("Cambiar estados tickets");
+            nuevaVentana.setScene(new Scene(root));
+            nuevaVentana.show();
+            
+            Stage ventanaActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            ventanaActual.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

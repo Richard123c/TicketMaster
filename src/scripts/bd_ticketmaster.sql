@@ -52,3 +52,83 @@ INSERT INTO permisos (nombre, descripcion) VALUES
 ('Gestionar departamentos', 'Permite administrar los departamentos de la organización'),
 ('Gestionar flujos de trabajo', 'Permite configurar pasos y reglas de los tickets'),
 ('Configurar parámetros del sistema', 'Permite modificar la configuración general del sistema');
+
+CREATE TABLE departamentos (
+id SERIAL PRIMARY KEY,
+nombre VARCHAR(50) UNIQUE NOT NULL,
+descripcion TEXT
+);
+
+CREATE TABLE usuarios_iniciales (
+id SERIAL PRIMARY KEY,
+nombre_completo VARCHAR(100) NOT NULL,
+correo VARCHAR(100) NOT NULL,
+nombre_usuario VARCHAR(50) UNIQUE NOT NULL,
+contraseña VARCHAR(100) NOT NULL,
+rol VARCHAR(50) NOT NULL, 
+departamento VARCHAR(100),
+activo BOOLEAN DEFAULT TRUE
+);
+
+SELECT * FROM usuarios_iniciales LIMIT 1;
+
+CREATE TABLE estados_ticket (
+nombre VARCHAR(50) PRIMARY KEY,
+descripcion TEXT,
+es_final BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+CREATE TABLE transiciones_estado (
+    estado_origen VARCHAR(50),
+    siguiente_estado VARCHAR(50),
+    PRIMARY KEY (estado_origen, siguiente_estado),
+    FOREIGN KEY (estado_origen) REFERENCES estados_ticket(nombre) ON DELETE CASCADE,
+    FOREIGN KEY (siguiente_estado) REFERENCES estados_ticket(nombre) ON DELETE CASCADE
+);
+
+CREATE TABLE tickets (
+id SERIAL PRIMARY KEY,
+titulo TEXT NOT NULL,
+estado VARCHAR(50),
+FOREIGN KEY (estado) REFERENCES estados_ticket(nombre)
+);
+
+INSERT INTO estados_ticket (nombre, descripcion, es_final) VALUES
+('Pendiente', 'El ticket ha sido creado pero aun no atendido.', false),
+('En Proceso', 'El ticket esta siendo gestionado.', false),
+('En Espera', 'Esperando respuesta del usuario o de un tercero.', false),
+('Resuelto', 'El problema ha sido solucionado.', true),
+('Cerrado', 'El ticket ha cerrado definitamente.', true);
+
+INSERT INTO transiciones_estado (estado_origen, siguiente_estado) VALUES
+('Pendiente', 'En Proceso'),
+('Pendiente', 'En Espera'),
+('En Proceso', 'Resuelto'),
+('En Proceso', 'En Espera'),
+('En Espera', 'En Proceso'),
+('Resuelto', 'Cerrado');
+
+CREATE TABLE flujos_trabajo (
+nombre VARCHAR(50) PRIMARY KEY
+);
+
+CREATE TABLE flujo_estados (
+flujo VARCHAR(50),
+estado VARCHAR(50),
+PRIMARY KEY (flujo, estado),
+FOREIGN KEY (flujo) REFERENCES flujos_trabajo(nombre) ON DELETE CASCADE,
+FOREIGN KEY (estado) REFERENCES estados_ticket(nombre) ON DELETE CASCADE
+);
+
+CREATE TABLE flujo_transiciones (
+flujo VARCHAR(50),
+origen VARCHAR(50),
+destino VARCHAR(50),
+PRIMARY KEY (flujo, origen, destino),
+FOREIGN KEY (flujo) REFERENCES flujos_trabajo(nombre) ON DELETE CASCADE,
+FOREIGN KEY (origen) REFERENCES estados_ticket(nombre) ON DELETE CASCADE,
+FOREIGN KEY (destino) REFERENCES estados_ticket(nombre) ON DELETE CASCADE
+);
+
+ALTER TABLE tickets ADD COLUMN flujo VARCHAR(50);
+ALTER TABLE tickets ADD CONSTRAINT fk_flujo FOREIGN KEY (flujo) REFERENCES flujos_trabajo(nombre);

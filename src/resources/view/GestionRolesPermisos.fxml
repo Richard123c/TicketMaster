@@ -1,11 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticketmaster.controller.GestionRolesPermisosController">
-    
+<AnchorPane id="AnchorPane" prefHeight="584.0" prefWidth="707.0" style="-fx-background-color: #ba181b;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticketmaster.controller.GestionRolesPermisosController">
+   <children>
+      <Label contentDisplay="CENTER" layoutX="209.0" layoutY="40.0" style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Gestion de Roles y Permisos" textFill="WHITE" />
+      <HBox alignment="TOP_CENTER" layoutX="15.0" layoutY="108.0" prefHeight="233.0" prefWidth="269.0" style="-fx-spacing: 20; -fx-padding: 20;">
+         <children>
+            <VBox prefHeight="176.0" prefWidth="228.0" style="-fx-spacing: 10;">
+               <children>
+                  <Label text="Roles Existentes" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="13.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="lvRoles" prefHeight="157.0" prefWidth="228.0" style="-fx-pref-width: 200; -fx-pref-height: 300; -fx-background-color: #adb5bd;" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Button fx:id="btnEliminarRol" layoutX="36.0" layoutY="352.0" mnemonicParsing="false" onAction="#eliminarRol" prefHeight="25.0" prefWidth="228.0" style="-fx-background-color: #343a40;" text="Eliminar Rol" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Button>
+      <VBox layoutX="326.0" layoutY="130.0" prefHeight="454.0" prefWidth="374.0" style="-fx-spacing: 10;">
+         <children>
+            <Label text="Nombre del Rol" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNombreRol" prefHeight="31.0" prefWidth="346.0" style="-fx-background-color: #adb5bd;" />
+            <Label text="Descripcion del Rol" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="txtDescripcionRol" prefHeight="97.0" prefWidth="346.0" style="-fx-pref-row-count: 3; -fx-background-color: #d9d9d9;" />
+            <HBox prefHeight="133.0" prefWidth="243.0" style="-fx-spacing: 10;">
+               <children>
+                  <VBox prefHeight="133.0" prefWidth="153.0" style="-fx-spacing: 5;">
+                     <children>
+                        <Label text="Permisos Disponibles" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="lvPermisosDisponibles" prefHeight="200.0" prefWidth="200.0" style="-fx-pref-height: 200; -fx-pref-width: 200; -fx-background-color: #adb5bd;" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="133.0" prefWidth="50.0" style="-fx-spacing: 10;">
+                     <children>
+                        <Button fx:id="btnAgregarPermiso" mnemonicParsing="false" onAction="#agregarPermiso" style="-fx-background-color: #343a40;" text="&gt;" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnQuitarPermiso" mnemonicParsing="false" onAction="#quitarPermiso" style="-fx-background-color: #343a40;" text="&lt;" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="133.0" prefWidth="150.0" style="-fx-spacing: 5;">
+                     <children>
+                        <Label text="Permisos Asignados" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="lvPermisosAsignados" prefHeight="200.0" prefWidth="200.0" style="-fx-pref-height: 200; -fx-pref-width: 200; -fx-background-color: #adb5bd;" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="77.0" prefWidth="268.0" style="-fx-spacing: 10;">
+               <children>
+                  <Button fx:id="btnGuardarRol" mnemonicParsing="false" onAction="#guardarRol" prefHeight="25.0" prefWidth="188.0" style="-fx-background-color: #343a40;" text="Guardar Rol" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <Label fx:id="lblEstado" alignment="CENTER" style="-fx-text-fill: #ffd60a;" text="Label" textFill="#ffd60a">
+               <font>
+                  <Font name="Arial Black" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>

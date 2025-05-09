@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="469.0" prefWidth="1040.0" style="-fx-background-color: #ba181b;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticketmaster.controller.GestionFlujosController">
+   <children>
+      <VBox layoutX="6.0" layoutY="6.0" prefHeight="461.0" prefWidth="157.0" spacing="10.0">
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+         <children>
+            <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Flujos de Trabajo" textFill="WHITE" />
+            <ListView fx:id="lvFlujos" prefHeight="383.0" prefWidth="157.0" style="-fx-background-color: #adb5bd;" />
+            <HBox prefHeight="46.0" prefWidth="157.0" spacing="10.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#seleccionarFlujo" prefHeight="27.0" prefWidth="74.0" style="-fx-background-color: #343a40; -fx-font-size: 13px; -fx-font-weight: bold;" text="Nuevo" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#eliminarFlujo" style="-fx-background-color: #343a40; -fx-font-size: 13px; -fx-font-weight: bold;" text="Eliminar" textFill="#fffefe" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="194.0" layoutY="17.0" prefHeight="443.0" prefWidth="478.0" spacing="10.0">
+         <padding>
+            <Insets top="15.0" />
+         </padding>
+         <children>
+            <HBox prefHeight="44.0" prefWidth="484.0" spacing="10.0">
+               <children>
+                  <Label minWidth="130.0" style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Nombre del Flujo" textFill="WHITE" />
+                  <TextField fx:id="txtNombreFlujo" prefHeight="25.0" prefWidth="255.0" style="-fx-background-color: #adb5bd;" />
+                  <Button mnemonicParsing="false" onAction="#guardarFlujo" style="-fx-background-color: #343a40; -fx-font-size: 13px; -fx-font-weight: bold;" text="Guardar" textFill="WHITE" />
+               </children>
+            </HBox>
+            <HBox prefHeight="189.0" prefWidth="473.0" spacing="20.0">
+               <children>
+                  <VBox prefHeight="137.0" prefWidth="127.0" spacing="5.0">
+                     <children>
+                        <Label style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Estados Disponibles" textFill="WHITE" />
+                        <ListView fx:id="lvEstadosDisponibles" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #adb5bd;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="189.0" prefWidth="126.0" spacing="5.0">
+                     <children>
+                        <Label style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Estados Asignados" textFill="WHITE" />
+                        <ListView fx:id="lvEstadosDelFlujo" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #adb5bd;" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="189.0" prefWidth="44.0">
+                     <children>
+                        <Button alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#agregarEstadoAlFlujo" style="-fx-background-color: #343a40; -fx-font-size: 15px; -fx-font-weight: bold;" text="&gt;&gt;" textFill="WHITE" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Label id="lblEstado" style="-fx-font-size: 20px;" text="Label" textFill="#ffd60a" />
+         </children>
+      </VBox>
+      <TitledPane id="tablaTransiciones" animated="false" layoutX="682.0" layoutY="20.0" prefHeight="423.0" prefWidth="324.0" style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Transiciones">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="264.0">
+               <children>
+                  <VBox layoutX="-2.0" layoutY="-1.0" prefHeight="397.0" prefWidth="330.0" spacing="10.0" style="-fx-background-color: #FC7570;">
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                     <children>
+                        <HBox prefHeight="34.0" prefWidth="232.0" spacing="10.0">
+                           <children>
+                              <Label minWidth="60.0" style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Origen" />
+                              <ComboBox fx:id="cmbOrigen" prefWidth="150.0" style="-fx-background-color: #adb5bd;" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="34.0" prefWidth="232.0" spacing="10.0">
+                           <children>
+                              <Label minWidth="60.0" style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Destino" />
+                              <ComboBox fx:id="cmbDestino" prefWidth="150.0" style="-fx-background-color: #adb5bd;" />
+                           </children>
+                        </HBox>
+                        <Button fx:id="agregarTransicion" mnemonicParsing="false" style="-fx-background-color: #343a40; -fx-font-size: 13px; -fx-font-weight: bold;" text="Agregar Transición" textFill="WHITE" />
+                        <TableView fx:id="tablaTransiciones" prefHeight="200.0" prefWidth="240.0" style="-fx-background-color: #adb5bd;">
+                          <columns>
+                            <TableColumn fx:id="colOrigen" prefWidth="150.0" text="Origen" />
+                            <TableColumn fx:id="colDestino" prefWidth="150.0" text="Destino" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+   </children>
+</AnchorPane>

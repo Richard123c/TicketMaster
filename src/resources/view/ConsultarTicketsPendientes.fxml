@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="483.0" prefWidth="707.0" style="-fx-background-color: #ba181b;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="ticketmaster.controller.ConsultarTicketsPendientesController">
+   <children>
+      <VBox layoutX="10.0" layoutY="30.0" prefHeight="434.0" prefWidth="684.0" spacing="10.0">
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+         <children>
+            <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Solicitudes Pendientes" textFill="WHITE" />
+            <HBox prefHeight="45.0" prefWidth="684.0" spacing="10.0">
+               <children>
+                  <TextField fx:id="txtBuscar" prefHeight="25.0" prefWidth="179.0" promptText="Buscar por titulo o descripcion" />
+                  <ComboBox fx:id="cbFiltroPrioridad" prefHeight="25.0" prefWidth="168.0" promptText="Filtrar por Prioridad" style="-fx-background-color: #adb5bd;" />
+                  <ComboBox fx:id="cbFiltroDepartamento" prefHeight="25.0" prefWidth="180.0" promptText="Filtrar por Departamento" style="-fx-background-color: #adb5bd;" />
+               </children>
+            </HBox>
+            <TableView fx:id="tablaTickets" prefHeight="200.0" prefWidth="668.0" style="-fx-background-color: #adb5bd;">
+              <columns>
+                <TableColumn fx:id="colTitulo" prefWidth="120.0" text="Titulo" />
+                <TableColumn fx:id="colPrioridad" prefWidth="107.0" text="Prioridad" />
+                  <TableColumn fx:id="colFecha" prefWidth="144.0" text="Fecha de Creacion" />
+                  <TableColumn fx:id="colDepartamento" prefWidth="150.0" text="Departamento" />
+                  <TableColumn fx:id="colEstado" prefWidth="162.0" text="Estado" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

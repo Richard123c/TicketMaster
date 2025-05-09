@@ -9,13 +9,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="789.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticketmaster.controller.ConfigParametrosController">
+<AnchorPane id="AnchorPane" prefHeight="789.0" prefWidth="893.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticketmaster.controller.ConfigParametrosController">
    <children>
-      <Pane prefHeight="789.0" prefWidth="734.0" style="-fx-background-color: white;">
+      <Pane layoutX="13.0" prefHeight="789.0" prefWidth="990.0" style="-fx-background-color: white;">
          <children>
-            <ImageView fitHeight="788.0" fitWidth="752.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="788.0" fitWidth="753.0" layoutX="-13.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../imagenes/Puerta.jpg" />
                </image>
@@ -78,22 +79,38 @@
                </font>
             </Label>
             <TextField fx:id="txtPrioridadBaja" layoutX="365.0" layoutY="600.0" prefHeight="34.0" prefWidth="192.0" style="-fx-background-color: #fceade;" />
-            <Button id="btnGuardar" layoutX="225.0" layoutY="696.0" mnemonicParsing="false" onAction="#guardar" style="-fx-background-color: #8c2f39;" text="Guardar" textFill="WHITE">
+            <Button id="btnGuardar" layoutX="231.0" layoutY="691.0" mnemonicParsing="false" onAction="#guardar" style="-fx-background-color: #8c2f39;" text="Guardar" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnCancelar" layoutX="435.0" layoutY="696.0" mnemonicParsing="false" onAction="#cancelar" style="-fx-background-color: #8c2f39;" text="Cancelar" textFill="WHITE">
+            <Button fx:id="btnCancelar" layoutX="430.0" layoutY="691.0" mnemonicParsing="false" onAction="#cancelar" style="-fx-background-color: #8c2f39;" text="Cancelar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Label fx:id="lblError" layoutX="346.0" layoutY="741.0" text="Label" textFill="#f20101" />
+            <Label fx:id="lblError" layoutX="360.0" layoutY="663.0" text="Label" textFill="#f20101" />
             <Label layoutX="163.0" layoutY="53.0" text="Configuracion Parametros" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="32.0" />
                </font>
             </Label>
+            <VBox alignment="CENTER" layoutX="718.0" layoutY="16.0" prefHeight="762.0" prefWidth="260.0" style="-fx-spacing: 15.0; -fx-padding: 20;">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#abrirGestionRolesPermisos" prefHeight="50.0" prefWidth="177.0" style="-fx-background-color: black; -fx-font-size: 15px; -fx-font-weight: bold;" text="Roles y Permisos" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#abrirGestionDepartamentos" prefHeight="53.0" prefWidth="177.0" style="-fx-background-color: black; -fx-font-size: 15px; -fx-font-weight: bold;" text="Departamentos" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#abrirGestionUsuarios" prefHeight="48.0" prefWidth="179.0" style="-fx-background-color: black; -fx-font-size: 15px; -fx-font-weight: bold;" text="Usuarios" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#abrirGestionEstados" prefHeight="46.0" prefWidth="179.0" style="-fx-background-color: black; -fx-font-size: 15px; -fx-font-weight: bold;" text="Estado Tickets" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#abrirGestionFlujos" prefHeight="44.0" prefWidth="180.0" style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-background-color: black;" text="Flujos de Trabajo" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#abrirGestionTickets" prefHeight="39.0" prefWidth="178.0" style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-background-color: black;" text="Tickets" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#abrirConsultasTicketsPendientes" prefHeight="45.0" prefWidth="215.0" style="-fx-background-color: black; -fx-font-size: 15px; -fx-font-weight: bold;" text="ConsultarTicketsPendientes" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#abrirCambioEstadoTicket" prefHeight="40.0" prefWidth="190.0" style="-fx-background-color: black; -fx-font-size: 15px; -fx-font-weight: bold;" text="CambiarEstadoTickets" textFill="WHITE" />
+               </children>
+            </VBox>
          </children>
       </Pane>
    </children>
