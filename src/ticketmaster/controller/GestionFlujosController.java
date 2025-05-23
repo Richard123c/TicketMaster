@@ -4,6 +4,7 @@
  */
 package ticketmaster.controller;
 
+import java.io.IOException;
 import ticketmaster.DAO.FlujoTrabajoDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,6 +17,12 @@ import ticketmaster.DAO.EstadoTicketDAO;
 
 import java.util.*;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
@@ -144,12 +151,19 @@ public class GestionFlujosController {
     }
     
     @FXML
+    private void nuevoFlujo(ActionEvent event) {
+        limpiar();
+    }
+    
+    @FXML
     private void limpiar() {
         txtNombreFlujo.clear();
         txtNombreFlujo.setDisable(false);
         estadosSeleccionados.clear();
         cmbOrigen.getItems().clear();
         cmbDestino.getItems().clear();
+        cmbOrigen.setValue(null);
+        cmbDestino.setValue(null);
         transiciones.clear();
         lvFlujos.getSelectionModel().clearSelection();
         lblEstado.setText("");
@@ -180,6 +194,20 @@ public class GestionFlujosController {
             return destino;
         }
 
+    }
+    
+    @FXML
+    private void volverAPrincipal(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/view/ConfigParametros.fxml"));
+                    Parent root = loader.load();
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(new Scene(root));
+                    stage.setTitle("Parametros del Sistema");
+                    stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
  

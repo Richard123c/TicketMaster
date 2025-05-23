@@ -1,0 +1,1 @@
+7117dd17-8b1f-4de5-900e-d55edd3cdb29|Problema con impresora|La impresora Epson no responde al enviar documentos.|Soporte Tecnico|Alta|Abierto|2025-05-16||

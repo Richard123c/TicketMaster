@@ -278,4 +278,22 @@ public class ConfigParametrosController {
             e.printStackTrace();
         }
     }
+    
+    @FXML
+    private void abrirAgregarNotaTicket(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/view/AgregarNota.fxml"));
+            Parent root = loader.load();
+            
+            Stage nuevaVentana = new Stage();
+            nuevaVentana.setTitle("Agregar nota a un ticket");
+            nuevaVentana.setScene(new Scene(root));
+            nuevaVentana.show();
+            
+            Stage ventanaActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            ventanaActual.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

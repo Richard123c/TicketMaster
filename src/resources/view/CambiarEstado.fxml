@@ -42,5 +42,6 @@
             <Label style="-fx-font-size: 17px;" text="Label" textFill="#ffd60a" />
          </children>
       </VBox>
+      <Button layoutX="287.0" layoutY="531.0" mnemonicParsing="false" onAction="#volverAPrincipal" style="-fx-background-color: #660708; -fx-font-size: 15px; -fx-font-weight: bold;" text="Volver a Principal" textFill="WHITE" />
    </children>
 </AnchorPane>

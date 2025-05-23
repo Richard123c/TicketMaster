@@ -8,16 +8,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+
+
 /**
  *
  * @author Lenovo
  */
 public class FlujoTrabajo {
-    private String nombre;
-    private List<String> estados;
-    private Map<String, List<String>> transiciones;
-    private Map<String, String> reglas;
-    private Map<String, String> accionesAutomaticas;
+    
+   private String nombre;
+   private List<String> estados;
+   private Map<String, List<String>> transiciones;
+   private Map<String, String> reglas;
+   private Map<String, String> accionesAutomaticas;
 
     public FlujoTrabajo(String nombre) {
         this.nombre = nombre;
@@ -50,27 +54,31 @@ public class FlujoTrabajo {
     public void setTransiciones(Map<String, List<String>> transiciones) {
         this.transiciones = transiciones;
     }
-    
-    public void agregarTransicion(String origen, String destino) {
-        transiciones.putIfAbsent(origen, new ArrayList<>());
-        if (!transiciones.get(origen).contains(destino)) {
-            transiciones.get(origen).add(destino);
-        }  
-    }
-    
-    public void eliminarTransicion(String origen, String destino) {
-        if (transiciones.containsKey(origen)) {
-            transiciones.get(origen).remove(destino);
-        }
+   
+   public void agregarTransicion(String origen, String destino) {
+       transiciones.putIfAbsent(origen, new ArrayList<>());
+       if(!transiciones.get(origen).contains(destino)) {
+           transiciones.get(origen).add(destino);
+       }
+   }
+   
+   public void eliminarTransicion(String origen, String destino) {
+       if (transiciones.containsKey(origen)) {
+           transiciones.get(origen).remove(destino);
+       }
+   }
+
+    public Map<String, String> getReglas() {
+        return reglas;
     }
 
     public void setReglas(Map<String, String> reglas) {
         this.reglas = reglas;
     }
-    
-    public void agregarRegla(String estado, String regla) {
-        reglas.put(estado, regla);
-    }
+   
+   public void agregarRegla(String estado, String regla) {
+       reglas.put(estado, regla);
+   }
 
     public Map<String, String> getAccionesAutomaticas() {
         return accionesAutomaticas;
@@ -79,13 +87,13 @@ public class FlujoTrabajo {
     public void setAccionesAutomaticas(Map<String, String> accionesAutomaticas) {
         this.accionesAutomaticas = accionesAutomaticas;
     }
-    
-    public void agregarAccion(String estado, String accion) {
-        accionesAutomaticas.put(estado, accion);
-    }
-    
-    @Override
-    public String toString() {
-        return nombre;
-    }
+   
+   public void agregarAccion(String estado, String accion) {
+       accionesAutomaticas.put(estado, accion);
+   }
+   
+   @Override
+   public String toString() {
+       return nombre;
+   }
 }

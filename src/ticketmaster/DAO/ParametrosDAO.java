@@ -42,8 +42,8 @@ public class ParametrosDAO {
         String deleteSql = "DELETE FROM parametros_sistema";
         String insertSql = """
                            INSERT INTO parametros_sistema
-                           (nombre_empresa, logo, idioma, zona_horaria, vencimiento_tickets, prioridad_alta, 
-                           VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?)
+                           (nombre_empresa, logo, idioma, zona_horaria, vencimiento_tickets, prioridad_alta, prioridad_media, prioridad_baja, creado_por, creado_en) 
+                           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW());
                            """;
         
         try (Connection conn = Conexion.conectar();

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -10,10 +11,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="483.0" prefWidth="707.0" style="-fx-background-color: #ba181b;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="ticketmaster.controller.ConsultarTicketsPendientesController">
+<AnchorPane id="AnchorPane" prefHeight="483.0" prefWidth="707.0" style="-fx-background-color: #ba181b;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticketmaster.controller.ConsultarTicketsPendientesController">
    <children>
-      <VBox layoutX="10.0" layoutY="30.0" prefHeight="434.0" prefWidth="684.0" spacing="10.0">
+      <VBox layoutX="10.0" layoutY="30.0" prefHeight="370.0" prefWidth="684.0" spacing="10.0">
          <padding>
             <Insets top="10.0" />
          </padding>
@@ -37,5 +37,6 @@
             </TableView>
          </children>
       </VBox>
+      <Button layoutX="269.0" layoutY="400.0" mnemonicParsing="false" onAction="#volverAPrincipal" style="-fx-background-color: #660708; -fx-font-size: 15px; -fx-font-weight: bold;" text="Volver a Principal" textFill="WHITE" />
    </children>
 </AnchorPane>

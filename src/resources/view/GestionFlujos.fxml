@@ -24,13 +24,13 @@
             <ListView fx:id="lvFlujos" prefHeight="383.0" prefWidth="157.0" style="-fx-background-color: #adb5bd;" />
             <HBox prefHeight="46.0" prefWidth="157.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#seleccionarFlujo" prefHeight="27.0" prefWidth="74.0" style="-fx-background-color: #343a40; -fx-font-size: 13px; -fx-font-weight: bold;" text="Nuevo" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#nuevoFlujo" prefHeight="27.0" prefWidth="74.0" style="-fx-background-color: #343a40; -fx-font-size: 13px; -fx-font-weight: bold;" text="Nuevo" textFill="WHITE" />
                   <Button mnemonicParsing="false" onAction="#eliminarFlujo" style="-fx-background-color: #343a40; -fx-font-size: 13px; -fx-font-weight: bold;" text="Eliminar" textFill="#fffefe" />
                </children>
             </HBox>
          </children>
       </VBox>
-      <VBox layoutX="194.0" layoutY="17.0" prefHeight="443.0" prefWidth="478.0" spacing="10.0">
+      <VBox layoutX="194.0" layoutY="17.0" prefHeight="351.0" prefWidth="478.0" spacing="10.0">
          <padding>
             <Insets top="15.0" />
          </padding>
@@ -63,10 +63,10 @@
                   </VBox>
                </children>
             </HBox>
-            <Label id="lblEstado" style="-fx-font-size: 20px;" text="Label" textFill="#ffd60a" />
+            <Label fx:id="lblEstado" style="-fx-font-size: 20px;" text="Label" textFill="#ffd60a" />
          </children>
       </VBox>
-      <TitledPane id="tablaTransiciones" animated="false" layoutX="682.0" layoutY="20.0" prefHeight="423.0" prefWidth="324.0" style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Transiciones">
+      <TitledPane animated="false" layoutX="682.0" layoutY="20.0" prefHeight="423.0" prefWidth="324.0" style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Transiciones">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="264.0">
                <children>
@@ -87,7 +87,7 @@
                               <ComboBox fx:id="cmbDestino" prefWidth="150.0" style="-fx-background-color: #adb5bd;" />
                            </children>
                         </HBox>
-                        <Button fx:id="agregarTransicion" mnemonicParsing="false" style="-fx-background-color: #343a40; -fx-font-size: 13px; -fx-font-weight: bold;" text="Agregar Transición" textFill="WHITE" />
+                        <Button fx:id="agregarTransicion" mnemonicParsing="false" onAction="#agregarTransicion" style="-fx-background-color: #343a40; -fx-font-size: 13px; -fx-font-weight: bold;" text="Agregar Transición" textFill="WHITE" />
                         <TableView fx:id="tablaTransiciones" prefHeight="200.0" prefWidth="240.0" style="-fx-background-color: #adb5bd;">
                           <columns>
                             <TableColumn fx:id="colOrigen" prefWidth="150.0" text="Origen" />
@@ -100,5 +100,6 @@
             </AnchorPane>
         </content>
       </TitledPane>
+      <Button layoutX="323.0" layoutY="376.0" mnemonicParsing="false" onAction="#volverAPrincipal" style="-fx-background-color: #660708; -fx-font-size: 15px; -fx-font-weight: bold;" text="Volver a Principal" textFill="WHITE" />
    </children>
 </AnchorPane>

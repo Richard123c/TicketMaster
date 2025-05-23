@@ -49,5 +49,6 @@
             <Button mnemonicParsing="false" onAction="#limpiarFormulario" style="-fx-background-color: #343a40; -fx-font-size: 15px; -fx-font-weight: bold;" text="Cancelar" textFill="#fffdfd" />
          </children>
       </VBox>
+      <Button layoutX="492.0" layoutY="470.0" mnemonicParsing="false" onAction="#volverAPrincipal" style="-fx-background-color: #660708; -fx-font-size: 15px; -fx-font-weight: bold;" text="Volver a Principal" textFill="WHITE" />
    </children>
 </AnchorPane>

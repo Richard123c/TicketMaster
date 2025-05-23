@@ -100,5 +100,6 @@
             </Label>
          </children>
       </VBox>
+      <Button layoutX="50.0" layoutY="489.0" mnemonicParsing="false" onAction="#volverAPrincipal" style="-fx-background-color: #660708; -fx-font-size: 15px; -fx-font-weight: bold;" text="Volver a Principal" textFill="WHITE" />
    </children>
 </AnchorPane>

@@ -8,6 +8,7 @@ import java.io.*;
 import ticketmaster.model.Ticket;
 import java.util.List;
 import java.util.ArrayList;
+import java.time.LocalDateTime;
 /**
  *
  * @author Lenovo
@@ -89,5 +90,18 @@ public class TicketDAO {
             }
         }
         return guardarTicket(tickets);
+    }
+    
+    public static boolean agregarNota(String idTicket, String nota) {
+        String rutaNotas = "notas_tickets.txt";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(rutaNotas, true))) {
+            String lineaNota = idTicket + "|" + LocalDateTime.now() + "|" + nota;
+            writer.write(lineaNota);
+            writer.newLine();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

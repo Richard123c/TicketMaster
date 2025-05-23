@@ -37,8 +37,8 @@
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Label>
-            <ImageView fx:id="imgLogo" fitHeight="79.0" fitWidth="192.0" layoutX="366.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="btnCargarLogo" layoutX="246.0" layoutY="301.0" mnemonicParsing="false" onAction="#cargarLogo" style="-fx-background-color: #8c2f39;" text="Seleccionar Imagen" textFill="WHITE">
+            <ImageView fx:id="imglogo" fitHeight="79.0" fitWidth="192.0" layoutX="366.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="cargarLogo" layoutX="246.0" layoutY="301.0" mnemonicParsing="false" onAction="#cargarLogo" style="-fx-background-color: #8c2f39;" text="Seleccionar Imagen" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="11.0" />
                </font>
@@ -109,6 +109,7 @@
                   <Button mnemonicParsing="false" onAction="#abrirGestionTickets" prefHeight="39.0" prefWidth="178.0" style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-background-color: black;" text="Tickets" textFill="WHITE" />
                   <Button mnemonicParsing="false" onAction="#abrirConsultasTicketsPendientes" prefHeight="45.0" prefWidth="215.0" style="-fx-background-color: black; -fx-font-size: 15px; -fx-font-weight: bold;" text="ConsultarTicketsPendientes" textFill="WHITE" />
                   <Button mnemonicParsing="false" onAction="#abrirCambioEstadoTicket" prefHeight="40.0" prefWidth="190.0" style="-fx-background-color: black; -fx-font-size: 15px; -fx-font-weight: bold;" text="CambiarEstadoTickets" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#abrirAgregarNotaTicket" prefHeight="36.0" prefWidth="192.0" style="-fx-background-color: black; -fx-font-size: 15px; -fx-font-weight: bold;" text="Agregar una Nota" textFill="WHITE" />
                </children>
             </VBox>
          </children>
